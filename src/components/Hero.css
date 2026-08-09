@@ -108,12 +108,14 @@
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
-.hero__text {
-    color: var(--text);
-    font-size: 1.05rem;
-    max-width: 560px;
+.hero__stack {
+    color: var(--dbz-yellow);
+    font-size: clamp(0.85rem, 2.4vw, 1.1rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     margin: 0 auto 2rem;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 212, 0, 0.4);
 }
 
 .hero__cta {

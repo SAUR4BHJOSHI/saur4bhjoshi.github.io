@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { socials } from "../data/portfolio";
+import { socials } from "../content/portfolio";
 import "./Contact.css";
 
 export default function Contact() {

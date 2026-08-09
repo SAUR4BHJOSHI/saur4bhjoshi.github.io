@@ -1,0 +1,112 @@
+/* ============================================================
+   BATTLE SAGAS — experience timeline
+   ============================================================ */
+.timeline {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-left: 2.5rem;
+}
+
+/* The vertical ki line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--dbz-orange), var(--dbz-yellow), var(--dbz-blue));
+    box-shadow: 0 0 12px rgba(255, 140, 26, 0.6);
+}
+
+.timeline__item {
+    position: relative;
+    padding-bottom: 2.2rem;
+}
+
+.timeline__item:last-child {
+    padding-bottom: 0;
+}
+
+/* Dragon-ball marker on the line */
+.timeline__ball {
+    position: absolute;
+    left: -2.5rem;
+    top: 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #ffe9a8, #ff8c1a 60%, #e35d00);
+    box-shadow: 0 0 14px rgba(255, 140, 26, 0.9);
+    display: grid;
+    place-items: center;
+}
+
+.timeline__shine {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95), transparent 70%);
+    transform: translate(-3px, -3px);
+}
+
+.timeline__card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.3rem 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline__card:hover {
+    transform: translateX(4px);
+    border-color: var(--dbz-orange);
+    box-shadow: var(--shadow-glow);
+}
+
+.timeline__period {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    color: var(--dbz-blue);
+    background: rgba(30, 144, 255, 0.12);
+    border: 1px solid rgba(30, 144, 255, 0.4);
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 0.7rem;
+}
+
+.timeline__role {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.timeline__company {
+    color: var(--dbz-yellow);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+}
+
+.timeline__points {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.timeline__points li {
+    position: relative;
+    padding-left: 1.2rem;
+    color: #cbd1e6;
+    font-size: 0.95rem;
+}
+
+.timeline__points li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: var(--dbz-orange);
+    font-size: 0.7rem;
+    top: 3px;
+}

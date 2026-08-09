@@ -1,4 +1,4 @@
-import { about } from "../data/portfolio";
+import { about } from "../content/portfolio";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import "./About.css";
 

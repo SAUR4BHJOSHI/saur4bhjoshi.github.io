@@ -1,4 +1,4 @@
-import { profile } from "../data/portfolio";
+import { profile } from "../content/portfolio";
 import "./Hero.css";
 
 export default function Hero() {
@@ -15,7 +15,7 @@ export default function Hero() {
                     Hi, I'm <span className="glow">{profile.name}</span>
                 </h1>
                 <h2 className="hero__subtitle">{profile.role}</h2>
-                <p className="hero__text">{profile.tagline}</p>
+                <p className="hero__stack">{profile.stack}</p>
                 <div className="hero__cta">
                     <a href="#projects" className="btn btn--primary">
                         View My Battles

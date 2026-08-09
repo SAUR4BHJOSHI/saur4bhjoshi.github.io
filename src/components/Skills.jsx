@@ -1,4 +1,4 @@
-import { skills } from "../data/portfolio";
+import { skills } from "../content/portfolio";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import "./Skills.css";
 
@@ -17,15 +17,21 @@ export default function Skills() {
                 className={`skills__grid reveal ${visible ? "is-visible" : ""}`}
             >
                 {skills.map((s) => (
-                    <article key={s.name} className="skill-card">
-                        <div className="skill-card__scouter">{s.power * 100}</div>
-                        <h3 className="skill-card__name">{s.name}</h3>
-                        <div className="skill-card__bar">
-                            <span
-                                style={{ width: visible ? `${s.power}%` : "0%" }}
-                            />
+                    <article className="skill-card" key={s.name}>
+                        <div className="skill-card__logo">
+                            <img src={s.icon} alt={s.name} loading="lazy" />
                         </div>
-                        <p className="skill-card__desc">{s.desc}</p>
+                        <div className="skill-card__body">
+                            <div className="skill-card__top">
+                                <h3 className="skill-card__name">{s.name}</h3>
+                                <span className="skill-card__power">
+                                    {s.power * 100}
+                                </span>
+                            </div>
+                            <div className="skill-card__bar">
+                                <span style={{ width: visible ? `${s.power}%` : "0%" }} />
+                            </div>
+                        </div>
                     </article>
                 ))}
             </div>

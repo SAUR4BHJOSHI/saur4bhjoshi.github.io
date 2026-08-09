@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navLinks } from "../data/portfolio";
+import { navLinks } from "../content/portfolio";
 import "./Navbar.css";
 
 export default function Navbar() {
