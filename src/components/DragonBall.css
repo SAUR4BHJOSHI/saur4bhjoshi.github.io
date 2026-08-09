@@ -1,0 +1,45 @@
+.dragon-ball {
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 32% 28%,
+        #ffe9a8 0%,
+        #ffb347 30%,
+        #ff8c1a 55%,
+        #e35d00 100%
+    );
+    box-shadow:
+        inset -4px -6px 10px rgba(140, 50, 0, 0.55),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.5),
+        0 0 18px rgba(255, 140, 26, 0.7);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.dragon-ball__shine {
+    position: absolute;
+    top: 14%;
+    left: 18%;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95), transparent 70%);
+}
+
+.dragon-ball__stars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    max-width: 70%;
+    line-height: 1;
+}
+
+.dragon-ball__stars i {
+    color: var(--dbz-star);
+    font-size: 0.6em;
+    font-style: normal;
+    filter: drop-shadow(0 1px 1px rgba(120, 0, 0, 0.6));
+}

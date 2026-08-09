@@ -1,0 +1,38 @@
+.ki-particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ki-particle {
+    position: absolute;
+    bottom: -30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #ffffff, var(--ki-color) 55%, transparent 75%);
+    box-shadow: 0 0 12px var(--ki-color), 0 0 22px var(--ki-color);
+    opacity: 0;
+    animation: kiRise var(--dur) linear infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes kiRise {
+    0% {
+        transform: translate(0, 0) scale(0.6);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    50% {
+        transform: translate(calc(var(--drift) * 0.5), -55vh) scale(1);
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(var(--drift), -110vh) scale(0.5);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,210 @@
+/* ============================================================
+   DRAGON BALL Z PORTFOLIO — GLOBAL THEME
+   ============================================================ */
+:root {
+    /* Core DBZ palette */
+    --dbz-orange: #ff6b00;      /* Goku's gi */
+    --dbz-orange-deep: #e04e00;
+    --dbz-blue: #1e90ff;        /* Kamehameha energy */
+    --dbz-blue-deep: #0a2472;
+    --dbz-yellow: #ffd400;      /* Super Saiyan aura */
+    --dbz-red: #d7263d;         /* Dragon ball red */
+    --dbz-star: #ff3b00;        /* Star color on orbs */
+
+    --bg: #05060f;
+    --bg-soft: #0c0f1f;
+    --bg-card: #12162b;
+    --text: #f5f7ff;
+    --text-dim: #aeb4d0;
+    --border: rgba(255, 212, 0, 0.18);
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-heading: 'Russo One', sans-serif;
+
+    --shadow-glow: 0 0 24px rgba(255, 107, 0, 0.45);
+    --shadow-blue: 0 0 30px rgba(30, 144, 255, 0.5);
+
+    --maxw: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-display);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ---------- Shared layout ---------- */
+.section {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+    scroll-margin-top: 80px;
+}
+
+.section__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.section__badge {
+    color: var(--dbz-star);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px var(--dbz-orange));
+}
+
+.section__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--dbz-yellow), var(--dbz-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.85rem 1.8rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Super Saiyan flame aura behind buttons */
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--dbz-yellow), var(--dbz-orange), var(--dbz-red));
+    filter: blur(14px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover::after {
+    opacity: 0.85;
+    animation: flameFlicker 0.5s ease-in-out infinite alternate;
+}
+
+.btn--ghost::after {
+    background: linear-gradient(135deg, #7ee8ff, var(--dbz-blue));
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--dbz-orange), var(--dbz-red));
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 34px rgba(255, 107, 0, 0.75);
+}
+
+.btn--ghost {
+    border-color: var(--dbz-blue);
+    color: var(--dbz-blue);
+    background: transparent;
+}
+
+.btn--ghost:hover {
+    background: rgba(30, 144, 255, 0.12);
+    box-shadow: var(--shadow-blue);
+    transform: translateY(-3px);
+}
+
+.glow {
+    color: var(--dbz-yellow);
+    text-shadow: 0 0 18px rgba(255, 212, 0, 0.8);
+}
+
+/* Reveal-on-scroll helper */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 0.9; }
+}
+
+@keyframes ballPop {
+    0% { transform: scale(0.6); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseOrb {
+    from { transform: scale(1); box-shadow: 0 0 30px #1e90ff, 0 0 60px rgba(30, 144, 255, 0.6); }
+    to { transform: scale(1.12); box-shadow: 0 0 44px #7ee8ff, 0 0 90px rgba(30, 144, 255, 0.8); }
+}
+
+@keyframes auraPulse {
+    from { transform: scale(0.92); opacity: 0.75; }
+    to { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes scrollDot {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 22px; opacity: 0; }
+}
+
+@keyframes flameFlicker {
+    0% { filter: blur(14px); opacity: 0.7; transform: scale(1); }
+    100% { filter: blur(18px); opacity: 1; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+    html { scroll-behavior: auto; }
+}
