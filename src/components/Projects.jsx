@@ -8,7 +8,7 @@ export default function Projects() {
     return (
         <section id="projects" className="projects section">
             <div className="section__head">
-                <span className="section__badge">★★★</span>
+                <span className="section__badge">★★★★</span>
                 <h2 className="section__title">Legendary Battles</h2>
             </div>
 

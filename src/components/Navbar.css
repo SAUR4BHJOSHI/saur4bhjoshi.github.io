@@ -18,12 +18,29 @@
     padding: 0.6rem 1.5rem;
 }
 
+/* Power-level scroll progress bar */
+.nav__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--dbz-orange), var(--dbz-yellow), var(--dbz-blue));
+    box-shadow: 0 0 10px rgba(255, 140, 26, 0.8);
+    transition: width 0.1s linear;
+    border-radius: 0 3px 3px 0;
+}
+
 .nav__logo {
     display: flex;
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-heading);
     letter-spacing: 2px;
+    transition: transform 0.25s ease;
+}
+
+.nav__logo:hover {
+    transform: scale(1.04);
 }
 
 .nav__logo-orb {
@@ -36,6 +53,14 @@
     color: var(--dbz-star);
     font-size: 0.9rem;
     box-shadow: 0 0 14px rgba(255, 140, 26, 0.8);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Super Saiyan flare on logo hover */
+.nav__logo:hover .nav__logo-orb {
+    background: radial-gradient(circle at 35% 30%, #fff6d6, #ffd400 55%, #ff8c1a);
+    box-shadow: 0 0 22px rgba(255, 212, 0, 1), 0 0 40px rgba(255, 140, 26, 0.7);
+    animation: flameFlicker 0.4s ease-in-out infinite alternate;
 }
 
 .nav__logo-text {
@@ -76,6 +101,17 @@
 
 .nav__link:hover::after {
     width: 100%;
+}
+
+/* Active section */
+.nav__link.is-active {
+    color: var(--dbz-yellow);
+}
+
+.nav__link.is-active::after {
+    width: 100%;
+    background: var(--dbz-yellow);
+    box-shadow: 0 0 8px var(--dbz-yellow);
 }
 
 .nav__toggle {

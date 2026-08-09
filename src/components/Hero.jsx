@@ -1,7 +1,7 @@
 import { profile } from "../content/portfolio";
 import "./Hero.css";
 
-export default function Hero() {
+export default function Hero({ ready = true }) {
     return (
         <section id="hero" className="hero section">
             <div className="hero__aura" aria-hidden="true" />
@@ -9,7 +9,7 @@ export default function Hero() {
                 <span /><span /><span />
             </div>
 
-            <div className="hero__content">
+            <div className={`hero__content ${ready ? "is-ready" : ""}`}>
                 <p className="hero__kicker">POWER LEVEL: {profile.powerLevel}</p>
                 <h1 className="hero__title">
                     Hi, I'm <span className="glow">{profile.name}</span>

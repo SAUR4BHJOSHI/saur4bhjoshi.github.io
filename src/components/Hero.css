@@ -64,6 +64,15 @@
     z-index: 1;
     max-width: 780px;
     padding: 0 1rem;
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reveal once the loader (Kamehameha) has finished charging */
+.hero__content.is-ready {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Dark focus halo so text stays readable over the rotating rings */

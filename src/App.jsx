@@ -23,7 +23,7 @@ export default function App() {
             <KiParticles />
             <Navbar />
             <main>
-                <Hero />
+                <Hero ready={!loading} />
                 <About />
                 <Skills />
                 <Experience />

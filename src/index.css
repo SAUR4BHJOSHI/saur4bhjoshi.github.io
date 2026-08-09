@@ -49,6 +49,33 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
 
+/* DBZ browser chrome */
+::selection {
+    background: var(--dbz-orange);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    border: 3px solid var(--bg);
+    background: linear-gradient(180deg, var(--dbz-orange), var(--dbz-yellow));
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--dbz-yellow), var(--dbz-orange));
+}
+
+/* Firefox */
+html {
+    scrollbar-color: var(--dbz-orange) var(--bg);
+    scrollbar-width: thin;
+}
+
 /* ---------- Shared layout ---------- */
 .section {
     max-width: var(--maxw);
