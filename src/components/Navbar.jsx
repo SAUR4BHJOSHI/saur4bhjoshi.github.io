@@ -53,13 +53,20 @@ export default function Navbar() {
                         <a
                             key={l.label}
                             href={l.href}
-                            className={`nav__link ${isActive ? "is-active" : ""}`}
+                            className={`nav__link ${isActive ? "is-active" : ""} ${
+                                l.external ? "nav__link--external" : ""
+                            }`}
                             onClick={() => setOpen(false)}
                             {...(l.external
                                 ? { target: "_blank", rel: "noreferrer" }
                                 : {})}
                         >
                             {l.label}
+                            {l.external && (
+                                <span className="nav__external" aria-hidden="true">
+                                    ↗
+                                </span>
+                            )}
                         </a>
                     );
                 })}

@@ -114,6 +114,24 @@
     box-shadow: 0 0 8px var(--dbz-yellow);
 }
 
+/* External link (opens new tab) indicator */
+.nav__link--external {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nav__external {
+    font-size: 0.75em;
+    color: var(--dbz-orange);
+    transition: transform 0.2s ease;
+}
+
+.nav__link--external:hover .nav__external {
+    transform: translate(2px, -2px);
+    color: var(--dbz-yellow);
+}
+
 .nav__toggle {
     display: none;
     flex-direction: column;

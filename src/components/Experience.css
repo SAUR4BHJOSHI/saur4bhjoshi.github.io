@@ -65,19 +65,37 @@
     box-shadow: var(--shadow-glow);
 }
 
-.timeline__head {
+/* Clickable header (always visible) */
+.timeline__header {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0 2rem 0 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+
+.timeline__headline {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 0.8rem;
     flex-wrap: wrap;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.8rem;
+}
+
+.timeline__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    letter-spacing: 0.4px;
+    color: var(--text);
 }
 
 .timeline__company {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
     background: linear-gradient(90deg, var(--dbz-yellow), var(--dbz-orange));
     -webkit-background-clip: text;
     background-clip: text;
@@ -101,7 +119,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 0.9rem;
 }
 
 .timeline__stack span {
@@ -114,44 +131,54 @@
     color: var(--dbz-orange);
 }
 
+/* Expand/collapse chevron */
+.timeline__chevron {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--dbz-yellow);
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.35s ease;
+}
+
+.timeline__item.is-open .timeline__chevron {
+    transform: rotate(180deg);
+}
+
+/* Smoothly animated details drawer */
+.timeline__details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+}
+
+.timeline__item.is-open .timeline__details {
+    grid-template-rows: 1fr;
+}
+
+.timeline__details-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.timeline__location {
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    letter-spacing: 0.3px;
+    margin: 1rem 0 0.8rem;
+}
+
 .timeline__summary {
     color: #eef1ff;
     margin-bottom: 1rem;
     font-size: 0.98rem;
 }
 
-/* Role progression within a company */
-.timeline__roles {
-    display: grid;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-    padding-left: 0.9rem;
-    border-left: 2px solid rgba(255, 212, 0, 0.25);
-}
-
-.timeline__roles li {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-}
-
-.timeline__role {
-    color: var(--text);
-    font-weight: 700;
-    font-size: 0.95rem;
-}
-
-.timeline__meta {
-    color: var(--text-dim);
-    font-size: 0.78rem;
-    letter-spacing: 0.4px;
-}
-
 .timeline__points {
     display: grid;
     gap: 0.5rem;
+    padding-bottom: 0.2rem;
 }
 
 .timeline__points li {

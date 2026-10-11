@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { experience } from "../content/portfolio";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import "./Experience.css";
 
 export default function Experience() {
     const [ref, visible] = useScrollReveal();
+    const [open, setOpen] = useState({ 0: true });
+
+    const toggle = (i) => setOpen((o) => ({ ...o, [i]: !o[i] }));
 
     return (
         <section id="experience" className="experience section">
@@ -16,50 +20,61 @@ export default function Experience() {
                 ref={ref}
                 className={`timeline reveal ${visible ? "is-visible" : ""}`}
             >
-                {experience.map((e, i) => (
-                    <article className="timeline__item" key={`${e.company}-${i}`}>
-                        <span className="timeline__ball">
-                            <span className="timeline__shine" />
-                        </span>
-                        <div className="timeline__card">
-                            <div className="timeline__head">
-                                <h3 className="timeline__company">{e.company}</h3>
-                                <span className="timeline__period">{e.period}</span>
-                            </div>
+                {experience.map((e, i) => {
+                    const isOpen = !!open[i];
+                    return (
+                        <article
+                            className={`timeline__item ${isOpen ? "is-open" : ""}`}
+                            key={`${e.company}-${i}`}
+                        >
+                            <span className="timeline__ball">
+                                <span className="timeline__shine" />
+                            </span>
 
-                            {e.stack && (
-                                <div className="timeline__stack">
-                                    {e.stack.map((t) => (
-                                        <span key={t}>{t}</span>
-                                    ))}
-                                </div>
-                            )}
-
-                            {e.summary && (
-                                <p className="timeline__summary">{e.summary}</p>
-                            )}
-
-                            {e.roles && (
-                                <ul className="timeline__roles">
-                                    {e.roles.map((r, j) => (
-                                        <li key={j}>
-                                            <span className="timeline__role">{r.title}</span>
-                                            <span className="timeline__meta">
-                                                {r.period} · {r.location}
+                            <div className="timeline__card">
+                                <button
+                                    className="timeline__header"
+                                    aria-expanded={isOpen}
+                                    onClick={() => toggle(i)}
+                                >
+                                    <span className="timeline__chevron" aria-hidden="true">
+                                        ▾
+                                    </span>
+                                    <div className="timeline__headline">
+                                        <h3 className="timeline__title">
+                                            {e.title},{" "}
+                                            <span className="timeline__company">
+                                                {e.company}
                                             </span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                                        </h3>
+                                        <span className="timeline__period">{e.period}</span>
+                                    </div>
+                                    <div className="timeline__stack">
+                                        {e.stack.map((t) => (
+                                            <span key={t}>{t}</span>
+                                        ))}
+                                    </div>
+                                </button>
 
-                            <ul className="timeline__points">
-                                {e.points.map((p, j) => (
-                                    <li key={j}>{p}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </article>
-                ))}
+                                <div className="timeline__details">
+                                    <div className="timeline__details-inner">
+                                        {e.location && (
+                                            <p className="timeline__location">{e.location}</p>
+                                        )}
+                                        {e.summary && (
+                                            <p className="timeline__summary">{e.summary}</p>
+                                        )}
+                                        <ul className="timeline__points">
+                                            {e.points.map((p, j) => (
+                                                <li key={j}>{p}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    );
+                })}
             </div>
         </section>
     );

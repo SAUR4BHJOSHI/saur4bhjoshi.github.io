@@ -12,8 +12,8 @@ export const profile = {
 export const about = {
     photo: "", // put an image path in /public and reference it, e.g. "/me.jpg"
     paragraphs: [
-        "Like a Saiyan who grows stronger after every battle, I'm a backend developer with 5+ years of experience building robust, scalable systems in Java & Spring Boot on AWS.",
-        "I'm a relentless learner — always chasing new technologies and sharper ways to design software. If there's a hard problem or a system that needs to scale, you can bet I'll be sinking my teeth into it. 💡",
+        "Like a Saiyan who grows stronger after every battle, I'm a Backend Engineer with 5+ years of IT experience and a passion for building scalable, high-performance systems. Driven by a deep interest in distributed architectures, I power up Spring Boot microservices, channel event-driven pipelines with Kafka, and deploy containerised services across the AWS cloud.",
+        "From REST APIs to EKS/ECS, Lambda, and messaging services, I engineer reliable, production-ready solutions built to withstand any power level. True to my Saiyan spirit, I thrive on complex challenges — diving headfirst into ideas and pushing past my limits to turn them into implementable realities. 💡",
     ],
     facts: [
         { label: "Class", value: "Backend Developer" },
@@ -29,7 +29,7 @@ export const skills = [
     { name: "AWS", icon: "/logos/aws.svg", power: 85 },
     { name: "PostgreSQL", icon: "/logos/postgres.svg", power: 82 },
     { name: "Docker", icon: "/logos/docker.svg", power: 80 },
-    { name: "Redis", icon: "/logos/redis.svg", power: 75 },
+    { name: "Kafka", icon: "/logos/kafka.svg", power: 78 },
 ];
 
 export const projects = [
@@ -60,36 +60,38 @@ export const socials = [
 ];
 
 // Work history shown as a DBZ "Battle Sagas" timeline. Newest first.
+// Collapsed cards show title + period + stack; click to expand details.
 export const experience = [
     {
+        title: "Technology Consultant",
         company: "Infosys",
         period: "Nov 2022 — Present",
-        stack: ["Java", "Spring Boot", "AWS", "PostgreSQL"],
+        location:
+            "London, UK (on-site, Apr 2025 — Present) · Indore, India (Nov 2022 — Apr 2025)",
+        stack: ["Java", "Spring Boot", "AWS EKS/ECS", "Kafka", "SQS/SNS", "REST APIs", "GitHub Actions"],
         summary:
-            "Worked as a Developer and Lead with Clients, Requirement Gathering, Handeling offshore teams, and delivering high-quality software solutions.",
-        roles: [
-            { title: "Senior Developer (Onsite)", period: "Apr 2025 — Present", location: "London, UK" },
-            { title: "Backend Developer", period: "Nov 2022 — Apr 2025", location: "Indore, India" }
-        ],
+            "Microservices-based platform for a manufacturing client, built and deployed on AWS — serving internal teams, dealers and third-party systems.",
         points: [
-            "Architected and delivered a scalable, real-time vehicle pricing platform with Java, Spring Boot, and AWS.",
-            "Engineered a concurrent synchronization mechanism to ensure data consistency across distributed services.",
-            "Designed and implemented a AI based health monitoring system for microservices, reducing downtime by 30%.",
+            "Work directly with the client to gather requirements, and lead an offshore team — managing work allocation, deliverables, code quality and releases.",
+            "Designed and developed a high-throughput Lead Generation & Ingestion Service for ingestion, segregation, distribution and analysis — the single source of truth for global dealer lead data, delivered in record time.",
+            "Built and maintained the UK Vehicle Pricing Service — price calculation, versioning, distribution and extraction for internal users, dealers and third-party systems.",
+            "Developed Spring Boot microservices and REST APIs, deployed as containers on AWS EKS and ECS.",
+            "Built event-driven workflows using Apache Kafka and SQS/SNS for reliable data distribution between services.",
+            "Supported CI/CD releases with GitHub Actions and handled production support.",
         ],
     },
     {
+        title: "Asst. Systems Engineer",
         company: "Tata Consultancy Services",
         period: "Jul 2021 — Nov 2022",
-        stack: ["Java", "Spring Boot", "AWS", "Kafka", "Cassandra"],
+        location: "Pune, India",
+        stack: ["Java", "Spring Boot", "REST APIs", "Resilience4j"],
         summary:
-            "Worked as a Backend Developer on a BFSI project, focusing on building and maintaining microservices, integrating with Kafka for event streaming, and optimizing system performance.",
-        roles: [
-            { title: "Assistant System Engineer", period: "Jul 2021 — Nov 2022", location: "Pune, India" },
-        ],
+            "Java & Spring Boot services for the Loyalty & Rewards platform of a banking client.",
         points: [
-            "Built and maintained a robust microservices backend, responsible for Rewards & Loyalty modules.",
-            "Worked on resolving Intermittent Connection issues with 3rd PArty APIS, Implemented a retry mechanism and improved error handling, resulting in a 40% reduction in failed transactions.",
-            "Optimized database queries and implemented caching strategies, improving response times by 25%.",
+            "Developed and maintained Java and Spring Boot services for the Loyalty & Rewards platform of a banking client.",
+            "Resolved a recurring, critical timeout issue with third-party services by implementing a dedicated circuit breaker and retry path using Resilience4j.",
+            "Built and enhanced REST APIs — development, unit testing, bug fixing and production support.",
         ],
     },
 ];
